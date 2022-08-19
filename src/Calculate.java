@@ -53,6 +53,38 @@ public class Calculate {
 
 
     //3
-
+    public static double RPNtoAnswer(String rpn){
+        String operand = new String();
+        Stack<Double> stack = new Stack<>();
+        for (int i = 0; i < rpn.length(); i++) {
+            if(rpn.charAt(i) == ' '){
+                continue;
+            }
+            if (getPriority(rpn.charAt(i)) == 0){
+                while (rpn.charAt(i) != ' ' && getPriority(rpn.charAt(i)) == 0){
+                    operand += rpn.charAt(i++);
+                    if (i == rpn.length()){
+                        break;
+                    }
+                }
+                stack.push(Double.parseDouble(operand));
+                operand = new String();
+            }
+            if (getPriority(rpn.charAt(i)) > 1) {
+                double a = stack.pop();
+                double b = stack.pop();
+                if (rpn.charAt(i) == '+'){
+                    stack.push(b+a);
+                } else if (rpn.charAt(i) == '-'){
+                    stack.push(b-a);
+                } else if (rpn.charAt(i) == '*'){
+                    stack.push(b*a);
+                } else if (rpn.charAt(i) == '/'){
+                    stack.push(b/a);
+                }
+            }
+        }
+        return stack.pop();
+    }
 
 }
