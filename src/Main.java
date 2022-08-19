@@ -25,8 +25,9 @@ public class Main {
                         for (int i = 0; i < str.length(); i++) {
                             if (str.charAt(i) > 39 && str.charAt(i) < 44 || str.charAt(i) == 45 || str.charAt(i) > 46 && str.charAt(i) < 58 || str.charAt(i) == 32) {
 //                                Calculate(str);
+//                                System.out.println(Calculate.ExspressionToRPN(str));
                             } else {
-                                System.out.println("В выражении присутствуют не математический символ: " + str.charAt(i) + " !");
+                                System.out.println("В выражении присутствует не математический символ: " + str.charAt(i) + " !");
                             }
                         }
                         break;
