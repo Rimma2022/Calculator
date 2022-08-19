@@ -3,7 +3,8 @@ import java.util.Stack;
 public class Calculate {
     //0
     public double decide (String Expression){
-        String rpn = ExspressionToRPN(Expression);
+        String prepared = preparingExpression(Expression);
+        String rpn = ExspressionToRPN(prepared);
         return RPNtoAnswer(rpn);
     }
     //1
@@ -90,6 +91,22 @@ public class Calculate {
             }
         }
         return stack.pop();
+    }
+     //4
+    private String preparingExpression (String exspression){
+        String preparingExpression = new String();
+        for (int token = 0; token < exspression.length(); token++){
+            char symbol = exspression.charAt(token);
+            if (symbol == '-') {
+                if(token == 0){
+                    preparingExpression += '0';
+                } else if (exspression.charAt(token-1) == '('){
+                    preparingExpression += '0';
+                }
+            }
+            preparingExpression += symbol;
+        }
+        return preparingExpression;
     }
 
 }
