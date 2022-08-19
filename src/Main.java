@@ -36,8 +36,7 @@ public class Main {
                                 break;
                             }
                         }
-                        System.out.println(Calculate.ExspressionToRPN(str));
-//                        System.out.println(Calculate.RPNtoAnswer(Calculate.ExspressionToRPN(str)));
+                        System.out.println(new Calculate().decide(str));
                         break;
                     }
                     default: {

@@ -1,6 +1,11 @@
 import java.util.Stack;
 
 public class Calculate {
+    //0
+    public double decide (String Expression){
+        String rpn = ExspressionToRPN(Expression);
+        return RPNtoAnswer(rpn);
+    }
     //1
     private static int getPriority(char token) {
         if (token == '*' || token == '/') {
@@ -17,7 +22,7 @@ public class Calculate {
     }
     //2
 
-    public static String ExspressionToRPN(String Expr){
+    private static String ExspressionToRPN(String Expr){
         String current = "";
         int priority;
         Stack<Character> stack = new Stack<>();
@@ -53,7 +58,7 @@ public class Calculate {
 
 
     //3
-    public static double RPNtoAnswer(String rpn){
+    private static double RPNtoAnswer(String rpn){
         String operand = new String();
         Stack<Double> stack = new Stack<>();
         for (int i = 0; i < rpn.length(); i++) {
