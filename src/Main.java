@@ -19,6 +19,9 @@ public class Main {
                     case 1: {
                         System.out.println("Введите выражение");
                         String str = bufferedReader.readLine();
+                        if (str.isEmpty()){
+                            System.out.println("Ничего не ввели!");
+                        }
                         for (int i = 0; i < str.length(); i++) {
                             if (str.charAt(i) > 39 && str.charAt(i) < 44 || str.charAt(i) == 45 || str.charAt(i) > 46 && str.charAt(i) < 58 || str.charAt(i) == 32) {
 //                                Calculate(str);
@@ -26,7 +29,6 @@ public class Main {
                                 System.out.println("В выражении присутствуют не математический символ: " + str.charAt(i) + " !");
                             }
                         }
-
                         break;
                     }
                     default: {
